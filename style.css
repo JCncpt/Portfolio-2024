@@ -1160,18 +1160,6 @@ textarea.w-input, textarea.w-select {
   width: 76px;
 }
 
-.video-container {
-  display: flex;
-  justify-content: center; /* Horizontally centers the video */
-  align-items: center; /* Vertically centers the video */
-  height: 100vh; /* Full viewport height for centering */
-}
-
-video {
-  width: 100%; /* Adjust video size */
-  max-width: 1000px; /* Optional: Limits the max width */
-}
-
 .videoreel {
   border-radius: 100px;
 }
