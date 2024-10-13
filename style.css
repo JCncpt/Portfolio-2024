@@ -1160,9 +1160,25 @@ textarea.w-input, textarea.w-select {
   width: 76px;
 }
 
+.video-container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the video */
+  align-items: center; /* Vertically centers the video */
+  height: 100vh; /* Full viewport height for centering */
+}
+
+video {
+  width: 100%; /* Adjust video size */
+  max-width: 1000px; /* Optional: Limits the max width */
+}
+
+.videoreel {
+  border-radius: 100px;
+}
+
 .w-background-video {
   color: #fff;
-  height: 500px;
+  height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -7172,9 +7188,9 @@ c {
     padding: 30px;
   }
 
-  .full-container {
+  /* .full-container {
     max-width: 1210px;
-  }
+  } */
 
   .section-purchase {
     padding-top: 130px;
@@ -7365,9 +7381,9 @@ c {
     display: flex;
   }
 
-  .full-container {
+  /* .full-container {
     max-width: 1790px;
-  }
+  } */
 
   /* .hero-1 {
     max-width: 1920px; */
@@ -7386,9 +7402,9 @@ c {
     font-size: 20px;
   }
 
-  /* .hero-multiply, .hero-project {
+  /* /* .hero-multiply, .hero-project {
     max-width: 1920px; */
-  }
+   */
 
   .heading-banner-2 {
     font-size: 230px;
@@ -7421,7 +7437,7 @@ c {
   .detail-section {
     padding-top: 200px;
   }
-}
+
 
 @media screen and (max-width: 991px) {
   h1 {
