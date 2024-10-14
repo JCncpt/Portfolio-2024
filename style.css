@@ -10086,7 +10086,7 @@ c {
 
 .video-gallery {
   display: flex;
-  gap: 20px;
+  gap: 70px;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
@@ -10122,4 +10122,17 @@ c {
 .video-wrapper:hover .hover-text {
   bottom: 20px; /* Slide up to this position */
   opacity: 1;   /* Make text visible */
+}
+
+.playing-gif {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Initially hidden */
+  width: 150px; /* Adjust size as needed */
+}
+
+.unmuted .playing-gif {
+  display: block; /* Show only when unmuted */
 }
