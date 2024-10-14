@@ -3,206 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Video Example with Animation</title>
+    <title>Autoplay Video Gallery</title>
     <style>
-        /* Styles for the popup */
-        .videoPopup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            width: 90%; /* Increased width */
-            max-width: 1200px; /* Increased max-width */
-            background: white;
-            border: 2px solid black;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            opacity: 0; /* Start with opacity 0 */
-            animation: fadeIn 0.5s forwards; /* Fade in animation */
+        .video-gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
         }
 
-        /* Styles for the close button */
-        .closeBtn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 10px; /* Added padding for better appearance */
-        }
-
-        /* Styles for the overlay */
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-            z-index: 500;
-            opacity: 0; /* Start with opacity 0 */
-            animation: overlayFadeIn 0.5s forwards; /* Fade in animation */
-        }
-
-        /* Style for the video to take up full width of the popup */
-        video {
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        /* Keyframes for the fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -60%); /* Slightly above the center */
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%); /* Centered */
-            }
-        }
-
-        /* Keyframes for the fade-out animation */
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translate(-50%, -50%); /* Centered */
-            }
-            to {
-                opacity: 0;
-                transform: translate(-50%, -60%); /* Slightly above the center */
-            }
-        }
-
-        /* Keyframes for the overlay fade-in animation */
-        @keyframes overlayFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Keyframes for the overlay fade-out animation */
-        @keyframes overlayFadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
+        .gallery-video {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
+    <div class="video-gallery">
+        <video src="assets\Sculpiflex_1.mp4" class="gallery-video" muted autoplay loop></video>
+        <video src="video2.mp4" class="gallery-video" muted></video>
+        <video src="video3.mp4" class="gallery-video" muted></video>
+    </div>
 
-<a href="javascript:void(0)" onclick="openPopup('video1.mp4')">a - Video 1</a>
-<a href="javascript:void(0)" onclick="openPopup('video2.mp4')">a - Video 2</a>
-<a href="javascript:void(0)" onclick="openPopup('video3.mp4')">a - Video 3</a>
-<a href="javascript:void(0)" onclick="openPopup('video4.mp4')">a - Video 4</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('.gallery-video');
+            let currentVideoIndex = 0;
 
-<!-- Overlay -->
-<div id="overlay" onclick="closePopup()"></div>
-
-<!-- Popup Video - Video 1 -->
-<div id="videoPopup1" class="videoPopup">
-    <span class="closeBtn" onclick="closePopup()">&times;</span>
-    <video controls id="popupVideo1">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-<!-- Popup Video - Video 2 -->
-<div id="videoPopup2" class="videoPopup">
-    <span class="closeBtn" onclick="closePopup()">&times;</span>
-    <video controls id="popupVideo2">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-<!-- Popup Video - Video 3 -->
-<div id="videoPopup3" class="videoPopup">
-    <span class="closeBtn" onclick="closePopup()">&times;</span>
-    <video controls id="popupVideo3">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-<!-- Popup Video - Video 4 -->
-<div id="videoPopup4" class="videoPopup">
-    <span class="closeBtn" onclick="closePopup()">&times;</span>
-    <video controls id="popupVideo4">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-<script>
-    function openPopup(videoSrc) {
-        var popup;
-        var videoElement;
-        
-        switch (videoSrc) {
-            case 'video1.mp4':
-                popup = document.getElementById('videoPopup1');
-                videoElement = document.getElementById('popupVideo1');
-                break;
-            case 'video2.mp4':
-                popup = document.getElementById('videoPopup2');
-                videoElement = document.getElementById('popupVideo2');
-                break;
-            case 'video3.mp4':
-                popup = document.getElementById('videoPopup3');
-                videoElement = document.getElementById('popupVideo3');
-                break;
-            case 'video4.mp4':
-                popup = document.getElementById('videoPopup4');
-                videoElement = document.getElementById('popupVideo4');
-                break;
-            default:
-                return;
-        }
-
-        var overlay = document.getElementById('overlay');
-        videoElement.src = videoSrc;
-        popup.style.display = 'block';
-        overlay.style.display = 'block';
-        setTimeout(function() {
-            popup.style.opacity = 1;
-            overlay.style.opacity = 0.8;
-        }, 10); // Small timeout to ensure display change happens before opacity
-        videoElement.play();
-    }
-
-    function closePopup() {
-        var popups = document.querySelectorAll('.videoPopup');
-        var overlay = document.getElementById('overlay');
-        for (var i = 0; i < popups.length; i++) {
-            var popup = popups[i];
-            popup.style.animation = 'fadeOut 0.5s forwards';
-        }
-        overlay.style.animation = 'overlayFadeOut 0.5s forwards';
-        setTimeout(function() {
-            for (var i = 0; i < popups.length; i++) {
-                var popup = popups[i];
-                popup.style.display = 'none';
-                popup.style.opacity = 0;
-                popup.style.animation = 'fadeIn 0.5s forwards';
+            function playNextVideo() {
+                videos[currentVideoIndex].pause();
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                videos[currentVideoIndex].play();
             }
-            overlay.style.display = 'none';
-            overlay.style.opacity = 0;
-            overlay.style.animation = 'overlayFadeIn 0.5s forwards';
-        }, 500); // Match the duration of the fade-out
 
-        var videos = document.querySelectorAll('video');
-        for (var i = 0; i < videos.length; i++) {
-            videos[i].pause();
-            videos[i].currentTime = 0;
-        }
-    }
-</script>
-
+            videos.forEach((video, index) => {
+                video.addEventListener('ended', playNextVideo);
+                if (index !== 0) video.pause(); // Only autoplay the first video
+            });
+        });
+    </script>
 </body>
 </html>

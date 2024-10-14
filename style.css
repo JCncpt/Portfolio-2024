@@ -10083,3 +10083,43 @@ c {
   cursor: pointer;
   padding: 10px; /* Added padding for better appearance */
 }
+
+.video-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.gallery-video {
+  width: 500px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.hover-text {
+  position: absolute;
+  bottom: -30px; /* Start hidden below the video */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  opacity: 0;
+  transition: bottom 0.3s ease, opacity 0.3s ease;
+}
+
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Slide up and show hover text on hover */
+.video-wrapper:hover .hover-text {
+  bottom: 20px; /* Slide up to this position */
+  opacity: 1;   /* Make text visible */
+}
