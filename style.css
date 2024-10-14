@@ -1160,9 +1160,13 @@ textarea.w-input, textarea.w-select {
   width: 76px;
 }
 
+.videoreel {
+  border-radius: 100px;
+}
+
 .w-background-video {
   color: #fff;
-  height: 500px;
+  height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -7172,9 +7176,9 @@ c {
     padding: 30px;
   }
 
-  .full-container {
+  /* .full-container {
     max-width: 1210px;
-  }
+  } */
 
   .section-purchase {
     padding-top: 130px;
@@ -7365,12 +7369,12 @@ c {
     display: flex;
   }
 
-  .full-container {
+  /* .full-container {
     max-width: 1790px;
-  }
+  } */
 
-  .hero-1 {
-    max-width: 1920px;
+  /* .hero-1 {
+    max-width: 1920px; */
   }
 
   .heading-banner-1 {
@@ -7386,9 +7390,9 @@ c {
     font-size: 20px;
   }
 
-  .hero-multiply, .hero-project {
-    max-width: 1920px;
-  }
+  /* /* .hero-multiply, .hero-project {
+    max-width: 1920px; */
+   */
 
   .heading-banner-2 {
     font-size: 230px;
@@ -7421,7 +7425,7 @@ c {
   .detail-section {
     padding-top: 200px;
   }
-}
+
 
 @media screen and (max-width: 991px) {
   h1 {
