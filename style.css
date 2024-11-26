@@ -1166,7 +1166,7 @@ textarea.w-input, textarea.w-select {
 
 .w-background-video {
   color: #fff;
-  height: 500px;
+  height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -1176,7 +1176,7 @@ textarea.w-input, textarea.w-select {
   z-index: -100;
   background-position: 50%;
   background-size: cover;
-  width: 100%;
+  width: 100%; 
   height: 100%;
   margin: auto;
   position: absolute;
